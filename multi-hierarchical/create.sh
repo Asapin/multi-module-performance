@@ -12,7 +12,7 @@ for val in ${data[@]}; do
     tee multi-hierarchical-$val/multi-hierarchical-$val-api/src/main/java/com/sebastian_daschner/maven_test/$val/${upperVal}Bean.java << EOF
 package com.sebastian_daschner.maven_test.$val;
 
-import javax.ejb.Local;
+import jakarta.ejb.Local;
 
 @Local
 public interface ${upperVal}Bean {
@@ -28,7 +28,7 @@ EOF
     tee multi-hierarchical-$val/multi-hierarchical-$val-core/src/main/java/com/sebastian_daschner/maven_test/$val/${upperVal}BeanImpl.java << EOF
 package com.sebastian_daschner.maven_test.$val;
 
-import javax.ejb.Stateless;
+import jakarta.ejb.Stateless;
 
 @Stateless
 public class ${upperVal}BeanImpl implements ${upperVal}Bean {
@@ -71,10 +71,10 @@ EOF
     tee multi-hierarchical-$val/multi-hierarchical-$val-ui/src/main/java/com/sebastian_daschner/maven_test/$val/${upperVal}Resource.java << EOF
 package com.sebastian_daschner.maven_test.$val;
 
-import javax.inject.Inject;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
+import jakarta.inject.Inject;
+import jakarta.ws.rs.GET;
+import jakarta.ws.rs.Path;
+import jakarta.ws.rs.PathParam;
 
 @Path("${val}")
 public class ${upperVal}Resource {
@@ -146,9 +146,9 @@ EOF
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
-            <groupId>javax</groupId>
-            <artifactId>javaee-api</artifactId>
-            <version>7.0</version>
+            <groupId>jakarta.platform</groupId>
+            <artifactId>jakarta.jakartaee-api</artifactId>
+            <version>11.0.0</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
@@ -177,9 +177,9 @@ EOF
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
-            <groupId>javax</groupId>
-            <artifactId>javaee-api</artifactId>
-            <version>7.0</version>
+            <groupId>jakarta.platform</groupId>
+            <artifactId>jakarta.jakartaee-api</artifactId>
+            <version>11.0.0</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
@@ -235,9 +235,9 @@ EOF
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
-            <groupId>javax</groupId>
-            <artifactId>javaee-api</artifactId>
-            <version>7.0</version>
+            <groupId>jakarta.platform</groupId>
+            <artifactId>jakarta.jakartaee-api</artifactId>
+            <version>11.0.0</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
@@ -309,9 +309,9 @@ EOF
 done
 tee -a multi-hierarchical-web-ui/pom.xml << EOF
         <dependency>
-            <groupId>javax</groupId>
-            <artifactId>javaee-api</artifactId>
-            <version>7.0</version>
+            <groupId>jakarta.platform</groupId>
+            <artifactId>jakarta.jakartaee-api</artifactId>
+            <version>11.0.0</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
@@ -327,8 +327,9 @@ tee -a pom.xml << EOF
     </modules>
 
     <properties>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
+        <failOnMissingWebXml>false</failOnMissingWebXml>
     </properties>
 </project>
 EOF
@@ -336,8 +337,8 @@ EOF
 tee -a multi-hierarchical-web-ui/src/main/java/com/sebastian_daschner/maven_test/JAXRSConfiguration.java << EOF
 package com.sebastian_daschner.maven_test;
 
-import javax.ws.rs.ApplicationPath;
-import javax.ws.rs.core.Application;
+import jakarta.ws.rs.ApplicationPath;
+import jakarta.ws.rs.core.Application;
 
 @ApplicationPath("resources")
 public class JAXRSConfiguration extends Application {

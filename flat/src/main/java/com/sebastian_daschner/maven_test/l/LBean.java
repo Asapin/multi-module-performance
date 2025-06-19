@@ -1,6 +1,6 @@
 package com.sebastian_daschner.maven_test.l;
 
-import javax.ejb.Local;
+import jakarta.ejb.Local;
 
 @Local
 public interface LBean {

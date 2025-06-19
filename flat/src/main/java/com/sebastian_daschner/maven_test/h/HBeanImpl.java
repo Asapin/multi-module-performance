@@ -1,6 +1,6 @@
 package com.sebastian_daschner.maven_test.h;
 
-import javax.ejb.Stateless;
+import jakarta.ejb.Stateless;
 
 @Stateless
 public class HBeanImpl implements HBean {

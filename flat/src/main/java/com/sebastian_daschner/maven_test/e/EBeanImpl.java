@@ -1,6 +1,6 @@
 package com.sebastian_daschner.maven_test.e;
 
-import javax.ejb.Stateless;
+import jakarta.ejb.Stateless;
 
 @Stateless
 public class EBeanImpl implements EBean {

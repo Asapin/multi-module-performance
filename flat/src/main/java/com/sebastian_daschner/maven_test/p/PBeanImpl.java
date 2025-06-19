@@ -1,6 +1,6 @@
 package com.sebastian_daschner.maven_test.p;
 
-import javax.ejb.Stateless;
+import jakarta.ejb.Stateless;
 
 @Stateless
 public class PBeanImpl implements PBean {

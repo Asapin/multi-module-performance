@@ -1,6 +1,6 @@
 package com.sebastian_daschner.maven_test.k;
 
-import javax.ejb.Local;
+import jakarta.ejb.Local;
 
 @Local
 public interface KBean {
